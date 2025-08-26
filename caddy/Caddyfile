@@ -1,0 +1,23 @@
+:443 {
+	# issue certs from Caddy's internal CA (no public domain needed)
+	tls internal
+
+	encode gzip
+
+	handle_path /nginx1* {
+		reverse_proxy nginx1:80
+	}
+	handle_path /nginx2* {
+		reverse_proxy nginx2:80
+	}
+	handle_path /nginx3* {
+		reverse_proxy nginx3:80
+	}
+	handle_path /apache1* {
+		reverse_proxy apache1:8080
+	}
+	handle_path /apache2* {
+		reverse_proxy apache2:8080
+	}
+}
+

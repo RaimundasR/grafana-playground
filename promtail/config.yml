@@ -1,0 +1,30 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  # Docker containers (JSON logs)
+  - job_name: docker
+    static_configs:
+      - targets: [ localhost ]
+        labels:
+          job: docker
+          __path__: /var/lib/docker/containers/*/*-json.log
+
+  # systemd journal
+  - job_name: journal
+    journal:
+      max_age: 12h
+      path: /run/log/journal
+      labels:
+        job: systemd-journal
+    relabel_configs:
+      - source_labels: ['__journal__systemd_unit']
+        target_label: 'systemd_unit'
+
