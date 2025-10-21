@@ -22,14 +22,14 @@ This repository contains a comprehensive setup for a monitoring stack using Dock
 │   └── prometheus.yml               # Prometheus server configuration for scraping metrics
 ├── promtail/
 │   └── config.yml                   # Configuration for Promtail to scrape logs
-├── test.txt                         # Test text file (for example purposes)
-├── test.txt.2                       # Another test text file (for example purposes)
+├── README.md                        # Main project documentation
+├── tets                             # Placeholder or test directory
 ```
 
 ## Architecture & Structure
 
 - **Apache Configuration**: The `httpd.conf` file located in the `apache/` directory configures the Apache HTTP servers used in this setup.
-  
+
 - **Blackbox Exporter**: Located in `blackbox/`, `blackbox.yml` defines modules for HTTP/HTTPS probing used by Prometheus.
 
 - **Caddy Setup**: The `Caddyfile` in the `caddy/` directory configures the reverse proxy rules for routing requests to different services.
@@ -45,6 +45,10 @@ This repository contains a comprehensive setup for a monitoring stack using Dock
 - **Prometheus Configuration**: Located in `prometheus/`, the `prometheus.yml` defines scraping jobs and targets for Prometheus.
 
 - **Promtail Configuration**: The `promtail/config.yml` file configures log scraping settings for the Promtail client that forwards logs to Loki.
+
+- **README.md**: Main project documentation providing an overview, setup instructions, and other necessary details about the project.
+
+- **tets**: Presumably a placeholder or test directory.
 
 ## Deployment & Setup
 
